@@ -16,7 +16,9 @@
     // and a scene
     const renderer = new THREE.WebGLRenderer();
     var camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 1000 );
-    camera.position.z = 100;
+    camera.position.x=-50;
+    camera.position.y=50;
+    camera.position.z= 50;
 
     const scene = new THREE.Scene();
 
@@ -42,12 +44,15 @@
 
     // add to the scene
     scene.add(pointLight);
-	tile1= new tile();
-	scene.add(tile1.cube)
-	tile1.cube.position.z = -300;
+	tile1= new tile(0,10,0);
+  for(var i=0; i < tile1.leds.length;i++){
+	   scene.add(tile1.leds[i]);
+  }
 
-  var flmaterial = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
-  var floor = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), flmaterial);
+  var flmaterial = new THREE.MeshBasicMaterial( {wireframe: true, color: 0xcccccc, side: THREE.DoubleSide} );
+  var floor = new THREE.Mesh(new THREE.PlaneGeometry(100, 100,10,10), flmaterial);
+
+  floor.rotateX(1.57);
   var controls = new THREE.OrbitControls( camera, renderer.domElement );
   scene.add(floor);
 
