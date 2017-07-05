@@ -44,7 +44,7 @@
 
     // add to the scene
     scene.add(pointLight);
-	tile1= new tile(0,10,0);
+	tile1= new tile(0,10,0,new Vector3(0,1,0));
   for(var i=0; i < tile1.leds.length;i++){
 	   scene.add(tile1.leds[i]);
   }
