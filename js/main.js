@@ -15,10 +15,10 @@
     // Create a WebGL renderer, camera
     // and a scene
     const renderer = new THREE.WebGLRenderer();
-    var camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 1000 );
-    camera.position.x=-50;
-    camera.position.y=50;
-    camera.position.z= 50;
+    var camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 2000 );
+    camera.position.x=-300;
+    camera.position.y= 300;
+    camera.position.z= 300;
 
     const scene = new THREE.Scene();
 
@@ -27,7 +27,7 @@
 
     // Start the renderer.
     renderer.setSize(WIDTH, HEIGHT);
-	renderer.setClearColor(0x3399ff);
+	  renderer.setClearColor(0x3399ff);
 
     // Attach the renderer-supplied
     // DOM element.
@@ -44,13 +44,33 @@
 
     // add to the scene
     scene.add(pointLight);
-	tile1= new tile(0,10,0,new Vector3(0,1,0));
-  for(var i=0; i < tile1.leds.length;i++){
-	   scene.add(tile1.leds[i]);
-  }
+    wall1 = [];
+    for (var i=0;i<7;i++){
+      var ii= ((i%2==0)? 4 : 5);
+      for(var j=0;j<ii;j++){
+       if( ii==4)  wall1.push(new tile(100, 30+i*15, j*30));
+       else  wall1.push(new tile(100, 30+i*15, -15+j*30));
+      }
+    }
+    for(var i=0;i<wall1.length;i++){
+      scene.add(wall1[i].allLeds);
+    }
+    wall2 = [];
+    for (var i=0;i<7;i++){
+      var ii= ((i%2==0)? 4 : 5);
+      for(var j=0;j<ii;j++){
+       if( ii==4)  wall2.push(new tile( j*30,30+i*15,-100));
+       else  wall2.push(new tile(-15+j*30,30+i*15,-100 ));
+      }
+    }
+    for(var i=0;i<wall2.length;i++){
+      wall2[i].allLeds.rotateY(-1.57);
+      scene.add(wall2[i].allLeds);
+    }
+	//tile1= new tile(0,0,0,0);
 
   var flmaterial = new THREE.MeshBasicMaterial( {wireframe: true, color: 0xcccccc, side: THREE.DoubleSide} );
-  var floor = new THREE.Mesh(new THREE.PlaneGeometry(100, 100,10,10), flmaterial);
+  var floor = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000,10,10), flmaterial);
 
   floor.rotateX(1.57);
   var controls = new THREE.OrbitControls( camera, renderer.domElement );
