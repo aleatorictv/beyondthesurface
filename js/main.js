@@ -61,8 +61,11 @@
   var controls = new THREE.OrbitControls( camera, renderer.domElement );
   scene.add(floor);
 
-for(tile t in wall1){
+for(var i=0; i<wall1.children.length; i++){
+  var tile = new tile();
+    var t = Object.assign(t,wall1.children[i]);
     t.changeColor(0xFFFFFF);
+
 }
     function update () {
       // Draw!
