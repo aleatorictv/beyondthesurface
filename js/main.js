@@ -16,10 +16,13 @@
     // and a scene
     const renderer = new THREE.WebGLRenderer();
     var camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 2000 );
-    camera.position.x= 225;
+    
+	/*camera.position.x= 225;
     camera.position.y= 600;
-    camera.position.z= -35;
-
+    camera.position.z= -35;*/
+	camera.position.x= -300;
+    camera.position.y= 300;
+    camera.position.z= -300;
     const scene = new THREE.Scene();
 
     // Add the camera to the scene.
@@ -27,7 +30,7 @@
 
     // Start the renderer.
     renderer.setSize(WIDTH, HEIGHT);
-	  renderer.setClearColor(0x3399ff);
+	renderer.setClearColor(0x3399ff);
 
     // Attach the renderer-supplied
     // DOM element.
@@ -42,18 +45,25 @@
     pointLight.position.y = 50;
     pointLight.position.z = 130;
 
+
+	//var t = new tile(0,0,0);
+	//scene.add(t.tile);
+	
     // add to the scene
     scene.add(pointLight);
-	wall1 = new THREE.Group();
-	wall2 = new THREE.Group();
-	wall3 = new THREE.Group();
-	wall4 = new THREE.Group();
-	wall5 = new THREE.Group();
+	wall1 = new wall(1);
+	wall2 = new wall(2);
+	wall3 = new wall(3);
+	wall4 = new wall(4);
+	wall5 = new wall(5);
 
-  buildwalls();
 
-  var walls = [wall1,wall2,wall3,wall4,wall5];
-
+ 	scene.add(wall1.tiles);
+	scene.add(wall2.tiles);
+	scene.add(wall3.tiles);
+	scene.add(wall4.tiles);
+	//scene.add(wall5.tiles);
+	
   var flmaterial = new THREE.MeshBasicMaterial( {wireframe: false, color: 0x777777,side: THREE.DoubleSide} );
   var floor = new THREE.Mesh(new THREE.PlaneGeometry(2000, 2000,10,10), flmaterial);
 
@@ -61,12 +71,12 @@
   var controls = new THREE.OrbitControls( camera, renderer.domElement );
   scene.add(floor);
 
-for(var i=0; i<wall1.children.length; i++){
-  var tile = new tile();
-    var t = Object.assign(t,wall1.children[i]);
-    t.changeColor(0xFFFFFF);
-
-}
+// for(var i=0; i<wall1.children.length; i++){
+//   var tile = new tile();
+//     var t = Object.assign(t,wall1.children[i]);
+//     t.changeColor(0xFFFFFF);
+//
+// }
     function update () {
       // Draw!
       renderer.render(scene, camera);
