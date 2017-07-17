@@ -1,6 +1,6 @@
 function wall(w) {
   this.w = w; //which wall 1 = left, 2 back, 3 right, 4 door, 5 ceiling
-  this.tileArray = []; // 0 is bottom left facing inward, counts up to the right then up
+  this.tilePosArray = []; // 0 is bottom left facing inward, counts up to the right then up
   this.tiles = new THREE.Group();
   tilespacingY = 3;
   tilespacingX = 8;
@@ -18,12 +18,17 @@ function wall(w) {
       for (var i = 0; i < 7; i++) {
         var ii = ((i % 2 == 0) ? 4 : 5);
         for (var j = 0; j < ii; j++) {
-          if (ii == 4) this.tileArray.push(new tile(0, i * intervalY -
+          if (ii == 4) this.tilePosArray.push(new tile(0, i * intervalY -
             midptY, j * intervalX - midptX));
+<<<<<<< HEAD
           else {
 			  this.tileArray.push(new tile(0, i * intervalY - midptY, 
            	   offsetX - j * intervalX + midptX));
 			}
+=======
+          else this.tilePosArray.push(new tile(0, i * intervalY - midptY, -
+            offsetX + j * intervalX - midptX));
+>>>>>>> 2332712be811cf6591158b31ecb8836f343f417a
         }
       }
       break;
@@ -31,10 +36,15 @@ function wall(w) {
       for (var i = 0; i < 7; i++) {
         var ii = ((i % 2 != 0) ? 4 : 5);
         for (var j = 0; j < ii; j++) {
-          if (ii == 4) this.tileArray.push(new tile(0, i * intervalY -
+          if (ii == 4) this.tilePosArray.push(new tile(0, i * intervalY -
             midptY, j * intervalX - midptX));
+<<<<<<< HEAD
           else this.tileArray.push(new tile(0, i * intervalY - midptY, 
             offsetX - j * intervalX + midptX));
+=======
+          else this.tilePosArray.push(new tile(0, i * intervalY - midptY, -
+            offsetX + j * intervalX - midptX));
+>>>>>>> 2332712be811cf6591158b31ecb8836f343f417a
         }
       }
       break;
@@ -42,10 +52,15 @@ function wall(w) {
       for (var i = 0; i < 7; i++) {
         var ii = ((i % 2 == 0) ? 4 : 5);
         for (var j = 0; j < ii; j++) {
-          if (ii == 4) this.tileArray.push(new tile(0, i * intervalY -
+          if (ii == 4) this.tilePosArray.push(new tile(0, i * intervalY -
             midptY, j * intervalX - midptX));
+<<<<<<< HEAD
           else this.tileArray.push(new tile(0, i * intervalY - midptY, 
             offsetX - j * intervalX + midptX));
+=======
+          else this.tilePosArray.push(new tile(0, i * intervalY - midptY, -
+            offsetX + j * intervalX - midptX));
+>>>>>>> 2332712be811cf6591158b31ecb8836f343f417a
         }
       }
       break;
@@ -53,6 +68,7 @@ function wall(w) {
       for (var i = 0; i < 7; i++) {
         var ii = ((i % 2 != 0) ? 2 : 4);
         for (var j = 0; j < ii; j++) {
+<<<<<<< HEAD
           if (ii == 2 && j==0) this.tileArray.push(new tile(0, i * intervalY -
             midptY, - midptX - j * intervalX +7));
           else if (ii == 2 && j==1) this.tileArray.push(new tile(0, i * intervalY -
@@ -61,6 +77,21 @@ function wall(w) {
             offsetX + midptX - j * intervalX));
           else if(ii==4 && j>=2) this.tileArray.push(new tile(0, i * intervalY - midptY, 
             offsetX + midptX - (j-2) * intervalX-210));
+=======
+          if (ii == 1) this.tilePosArray.push(new tile(0, i * intervalY -
+            midptY, -midptX - j * intervalX));
+          else this.tilePosArray.push(new tile(0, i * intervalY - midptY, -
+            offsetX - midptX + j * intervalX));
+        }
+      }
+      for (var i = 0; i < 7; i++) {
+        var ii = ((i % 2 != 0) ? 1 : 2);
+        for (var j = 0; j < ii; j++) {
+          if (ii == 1) this.tilePosArray.push(new tile(0, i * intervalY -
+            midptY, -midptX - j * intervalX + 210));
+          else this.tilePosArray.push(new tile(0, i * intervalY - midptY, -
+            offsetX - midptX + j * intervalX + 210));
+>>>>>>> 2332712be811cf6591158b31ecb8836f343f417a
         }
       }
 
@@ -69,16 +100,16 @@ function wall(w) {
       for (var i = 0; i < 11; i++) {
         var ii = ((i % 2 == 0) ? 3 : 4);
         for (var j = 0; j < ii; j++) {
-          if (ii == 4) this.tileArray.push(new tile(0, i * 3 - midptY, j *
+          if (ii == 4) this.tilePosArray.push(new tile(0, i * 3 - midptY, j *
             intervalX - midptX));
-          else this.tileArray.push(new tile(0, i * 3 - midptY, -offsetX + j *
+          else this.tilePosArray.push(new tile(0, i * 3 - midptY, -offsetX + j *
             intervalX - midptX));
         }
       }
       break;
   }
-  for (var i = 0; i < this.tileArray.length; i++) {
-    this.tiles.add(this.tileArray[i].tile);
+  for (var i = 0; i < this.tilePosArray.length; i++) {
+    this.tiles.add(this.tilePosArray[i].tile);
   }
 
   switch (w) {
@@ -114,8 +145,8 @@ function wall(w) {
 
 }
 wall.prototype.changeAllTiles = function(c) {
-  for (var i = 0; i < this.tileArray.length; i++) {
-    this.tileArray[i].changeColor(c);
+  for (var i = 0; i < this.tilePosArray.length; i++) {
+    this.tilePosArray[i].changeColor(c);
   }
 }
 wall.prototype.allOff = function() {
@@ -123,5 +154,5 @@ wall.prototype.allOff = function() {
 }
 
 wall.prototype.tileColor = function(n, c) {
-  this.tileArray[n].changeColor(c);
+  this.tilePosArray[n].changeColor(c);
 }
