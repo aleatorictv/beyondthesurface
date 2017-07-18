@@ -75,6 +75,7 @@ function wall(w) {
           else if(ii==4 && j<2) this.tileArray.push(new tile(0, i * intervalY - midptY, 
             offsetX + midptX - j * intervalX));
           else if(ii==4 && j>=2) this.tileArray.push(new tile(0, i * intervalY - midptY, 
+            offsetX + midptX - (j-2) * intervalX-210));
 =======
           if (ii == 1) this.tilePosArray.push(new tile(0, i * intervalY -
             midptY, -midptX - j * intervalX));
