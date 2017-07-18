@@ -63,8 +63,10 @@
     scene.add(wall2.tiles);
     scene.add(wall3.tiles);
     scene.add(wall4.tiles);
+    scene.add(wall5.tiles);
 
     //  wall2.changeTile(14, 0xFF0000);
+    wall5.tileColor(1, new THREE.Color(0xFFFFFF));
 
 
     var flmaterial = new THREE.MeshBasicMaterial({
@@ -94,6 +96,8 @@
       wall3.tileColor(stp, col);
       wall4.allOff();
       if (stp < wall4.tiles.children.length) wall4.tileColor(stp, col);
+      wall5.allOff();
+      if (stp < wall5.tiles.children.length) wall5.tileColor(stp, col);
       stp++;
       if (stp > 30) stp = 0;
 

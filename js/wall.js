@@ -4,7 +4,6 @@ function wall(w) {
   this.tiles = new THREE.Group();
   tilespacingY = 3;
   tilespacingX = 8;
-  tilespace = 0;
   tilesize = 28;
   midptX = tilesize * 3 + tilespacingX * 3;
   midptY = tilesize * 3 + tilespacingY * 3;
@@ -68,13 +67,16 @@ function wall(w) {
       }
       break;
     case 5: //ceiling
-      for (var i = 0; i < 11; i++) {
-        var ii = ((i % 2 == 0) ? 3 : 4);
+      for (var i = 0; i < 7; i++) {
+        var ii = ((i % 2 != 0) ? 3 : 4);
         for (var j = 0; j < ii; j++) {
-          if (ii == 4) this.tilePosArray.push(new tile(0, i * 3 - midptY, j *
-            intervalX - midptX));
-          else this.tilePosArray.push(new tile(0, i * 3 - midptY, -offsetX + j *
-            intervalX - midptX));
+          if (ii == 3) this.tilePosArray.push(new tile(0, i * 36 -
+            (tilesize * 3.5 + tilespacingX * 3) + 15, j * (tilesize * 2 +
+              7 * 2) - (tilesize * 3.5 + tilespacingX * 3) + offsetX + 20));
+          else this.tilePosArray.push(new tile(0, i * 36 -
+            (tilesize * 3.5 + tilespacingX * 3) + 15, j *
+            (tilesize * 2 + 7 * 2) - (tilesize * 3.5 + tilespacingX * 3) +
+            20));
         }
       }
       break;
