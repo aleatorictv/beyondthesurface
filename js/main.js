@@ -63,6 +63,8 @@
    scene.add(wall2.tiles);
    scene.add(wall3.tiles);
    scene.add(wall4.tiles);
+   scene.add(wall5.tiles);
+
 
     // wall4.tileColor(0, new THREE.Color(0xFFFFFF));
     // wall4.tileColor(4, new THREE.Color(0xFFFFFF));
@@ -82,12 +84,72 @@
 
     var stp = 0;
     var col = new THREE.Color();
-<<<<<<< HEAD
     //var timer = setInterval(onTick, 200);
-=======
-    var timer = setInterval(onTick, 400);
->>>>>>> 2332712be811cf6591158b31ecb8836f343f417a
     var black = new THREE.Color(0x000000);
+	var four = 0;
+	
+	var movingColumn = [];
+	//moveColumn.push(new Array[]);
+	
+	
+	
+	// all spinners
+		//     function onTick() {
+		// 	  for(var i =0;i<4; i++){ //walls
+		//   for(var j=0;j<walls[i].tileArray.length;j++){ //tiles
+		// 	  if(four%4 == 0 ) {
+		// 		  walls[i].tileArray[j].side(1,black);
+		// 		  walls[i].tileArray[j].side(2,black);
+		// 		  walls[i].tileArray[j].side(3,black);
+		// 	  }
+		// 	  walls[i].tileArray[j].side(four%4,col);
+		//   }
+		//  	 }
+		//    	 if(four%4 == 0 ) {
+		// col.setHSL(stp / 31, 1, .5);
+		// 	 }
+		// 	 four++;
+		// 	 if(four%4==0) four=0;
+		// 	 stp++;
+		// 	 if(stp>32) stp=0;
+		//  	}
+		//
+		
+		// tick through tiles individually
+		//     function onTick() {
+		//
+		// 	  for(var i =0;i<4; i++){ //walls
+		//   for(var j=0;j<walls[i].tileArray.length;j++){ //tiles
+		// 	  if(four%4 == 0 ) {
+		//
+		// 		  walls[i].tileArray[j].side(1,black);
+		// 		  walls[i].tileArray[j].side(2,black);
+		// 		  walls[i].tileArray[j].side(3,black);
+		// 	  }
+		// 	  walls[i].tileArray[j].side(four%4,col);
+		//   }
+		//  	 }
+		//    	 if(four%4 == 0 ) {
+		// col.setHSL(stp / 31, 1, .5);
+		// 	 }
+		// 	 four++;
+		// 	 if(four%4==0) four=0;
+		// 	 stp++;
+		// 	 if(stp>32) stp=0;
+		//  	}
+
+	//count through tile numbers
+    // col.setHSL(stp / 31, 1, .5);
+    // wall1.allOff();
+    // wall1.tileColor(stp, col);
+    // wall2.allOff();
+    // wall2.tileColor(stp, col);
+    // wall3.allOff();
+    // wall3.tileColor(stp, col);
+    // wall4.allOff();
+    // if (stp < wall4.tiles.children.length) wall4.tileColor(stp, col
+    //if (stp == 30) stp = 0;
+	
 
     function onTick() {
       col.setHSL(stp / 31, 1, .5);
