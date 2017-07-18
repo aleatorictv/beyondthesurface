@@ -15,19 +15,22 @@ function tile(x, y, z) {
 	this.bottom = [];
 	this.allLeds = new THREE.Group();
 	this.tile = new THREE.Group();
-
+	
+	for (var i = 0; i < 5; i++) {
+		this.ledPos.push(new Array(0, -3, i * 3 + 3.5));
+	}
 	for (var i = 0; i < 8; i++) {
 		this.ledPos.push(new Array(0, i * 3, 0));
 	}
-	for (var i = 0; i < 7; i++) {
-		this.ledPos.push(new Array(0, 24, i * 3 + 4.5));
+	for (var i = 0; i < 8; i++) {
+		this.ledPos.push(new Array(0, 24, i * 3 + 3));
 	}
 	for (var i = 0; i < 8; i++) {
 		this.ledPos.push(new Array(0, 21 - i * 3, 27));
 	}
-	for (var i = 0; i < 7; i++) {
-		this.ledPos.push(new Array(0, -3, i * 3 + 4.5));
-	}
+
+	this.ledPos.push(new Array(0, -3, 24));
+	
 	this.setpositions();
 }
 tile.prototype.changeColor = function(c) {

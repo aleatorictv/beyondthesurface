@@ -23,7 +23,7 @@
     camera.position.z= -35;*/
     camera.position.x = -300;
     camera.position.y = 300;
-    camera.position.z = -300;
+    camera.position.z = 300;
     const scene = new THREE.Scene();
 
     // Add the camera to the scene.
@@ -47,8 +47,8 @@
     pointLight.position.z = 130;
 
 
-    //var t = new tile(0,0,0);
-    //scene.add(t.tile);
+    // var t = new tile(0,15,0);
+    // scene.add(t.tile);
 
     // add to the scene
     scene.add(pointLight);
@@ -59,6 +59,7 @@
     wall5 = new wall(5);
 
 
+<<<<<<< HEAD
     scene.add(wall1.tiles);
     scene.add(wall2.tiles);
     scene.add(wall3.tiles);
@@ -67,6 +68,15 @@
 
     //  wall2.changeTile(14, 0xFF0000);
     wall5.tileColor(1, new THREE.Color(0xFFFFFF));
+=======
+   scene.add(wall1.tiles);
+   scene.add(wall2.tiles);
+   scene.add(wall3.tiles);
+   scene.add(wall4.tiles);
+
+    // wall4.tileColor(0, new THREE.Color(0xFFFFFF));
+    // wall4.tileColor(4, new THREE.Color(0xFFFFFF));
+>>>>>>> origin/master
 
 
     var flmaterial = new THREE.MeshBasicMaterial({
@@ -83,7 +93,11 @@
 
     var stp = 0;
     var col = new THREE.Color();
+<<<<<<< HEAD
+    //var timer = setInterval(onTick, 200);
+=======
     var timer = setInterval(onTick, 400);
+>>>>>>> 2332712be811cf6591158b31ecb8836f343f417a
     var black = new THREE.Color(0x000000);
 
     function onTick() {
